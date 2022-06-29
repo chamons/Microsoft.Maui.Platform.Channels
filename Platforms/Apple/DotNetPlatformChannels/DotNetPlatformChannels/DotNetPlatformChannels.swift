@@ -5,19 +5,19 @@ import UIKit;
 // to be exposed to C# and be marked @objc
 
 @objc
-protocol ChannelMessageHandler {
-    func sendMessageToDotNet (messageId: NSString, with args: [NSArray]) -> NSObject?
+public protocol ChannelMessageHandler {
+    func sendMessageToDotNet (messageId: NSString, withArgs args: [NSObject]) -> NSObject?
 }
 
 @objc
-protocol ChannelProvider {
+public protocol ChannelProvider {
     func getDefaultInstanceId () -> NSString
     func getInstance (channelID: NSString, withInstance instanceID: NSString) -> Channel
     func disposeInstance (channelID: NSString, withInstance instanceID: NSString)
 }
 
 @objc
-class Channel : NSObject {
+open class Channel : NSObject, ChannelMessageHandler {
     public required override init () { }
     
     public weak var managed: ChannelMessageHandler?;
@@ -27,29 +27,31 @@ class Channel : NSObject {
         managed = handler;
     }
     
-    public func sendMessageToDotNet (messageId: NSString, withArgs args: [NSArray]) -> NSObject?
+    @objc
+    public func sendMessageToDotNet (messageId: NSString, withArgs args: [NSObject]) -> NSObject?
     {
-        managed!.sendMessageToDotNet(messageId: messageId, with: args);
+        managed!.sendMessageToDotNet(messageId: messageId, withArgs: args)
     }
     
-    public func handleMessageFromDotNet (messageId: NSString, with args: [NSArray]) -> NSObject?
+    @objc
+    open func handleMessageFromDotNet (messageId: NSString, with args: [NSObject]) -> NSObject?
     {
         return nil;
     }
 }
 
 @objc
-protocol ViewChannel {
-    func makePlatformView () -> UIView
+public protocol ChannelViewProvider {
+    func getPlatformView () -> UIView
 }
 
 @objc
-class ChannelService : NSObject {
+public class ChannelService : NSObject {
     var services: [NSString:Channel.Type] = [:]
 
     public var channelProvider: ChannelProvider?;
     
-    static var shared = ChannelService()
+    public static var shared = ChannelService()
     private override init () { }
     
     public func registerChannel (channelId: NSString, channelType: Channel.Type)

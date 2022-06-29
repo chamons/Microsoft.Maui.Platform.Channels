@@ -10,9 +10,8 @@ import Foundation
 import DotNetPlatformChannels
 import UIKit
 
-class LabelViewChannel : ViewChannel, ChannelMessageHandler, ChannelViewProvider {
-    
-    func onChannelMessage(_ messageId: String, withArgs args: [Any]?) -> Any? {
+class LabelViewChannel : Channel, ChannelViewProvider {
+    public func onChannelMessage(_ messageId: String, withArgs args: [Any]?) -> Any? {
         
         if (messageId == "setText") {
             if let a = args![0] as? NSString {
@@ -24,7 +23,7 @@ class LabelViewChannel : ViewChannel, ChannelMessageHandler, ChannelViewProvider
     
     var label: UILabel? = nil;
     
-    func getPlatformView() -> UIView {
+    public func getPlatformView () -> UIView {
         if (label == nil) {
             label = UILabel(frame: CGRect())
         }

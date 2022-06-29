@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		64193AC82858E4C60093F16C /* Sample.h in Headers */ = {isa = PBXBuildFile; fileRef = 64193AC72858E4C60093F16C /* Sample.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		64193AD72858E4EC0093F16C /* DotNetPlatformChannels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64193AD32858E4DA0093F16C /* DotNetPlatformChannels.framework */; };
-		64193AD82858E4EC0093F16C /* DotNetPlatformChannels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 64193AD32858E4DA0093F16C /* DotNetPlatformChannels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		64193ADB2858E4FE0093F16C /* SampleChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64193ADA2858E4FE0093F16C /* SampleChannels.swift */; };
 		64193ADD2858E54D0093F16C /* MathChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64193ADC2858E54D0093F16C /* MathChannel.swift */; };
 		64193AEA28596D220093F16C /* LabelViewChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64193AE928596D220093F16C /* LabelViewChannel.swift */; };
@@ -23,28 +21,7 @@
 			remoteGlobalIDString = 64193A5E2858DF3B0093F16C;
 			remoteInfo = DotNetPlatformChannels;
 		};
-		64193AD42858E4E20093F16C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 64193ACE2858E4DA0093F16C /* DotNetPlatformChannels.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 64193A5D2858DF3B0093F16C;
-			remoteInfo = DotNetPlatformChannels;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		64193AD92858E4ED0093F16C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				64193AD82858E4EC0093F16C /* DotNetPlatformChannels.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		64193AC42858E4C60093F16C /* Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +37,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64193AD72858E4EC0093F16C /* DotNetPlatformChannels.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +75,7 @@
 		64193ACF2858E4DA0093F16C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				64193AD32858E4DA0093F16C /* DotNetPlatformChannels.framework */,
+				64193AD32858E4DA0093F16C /* libDotNetPlatformChannels.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,12 +109,10 @@
 				64193AC02858E4C60093F16C /* Sources */,
 				64193AC12858E4C60093F16C /* Frameworks */,
 				64193AC22858E4C60093F16C /* Resources */,
-				64193AD92858E4ED0093F16C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				64193AD52858E4E20093F16C /* PBXTargetDependency */,
 			);
 			name = Sample;
 			productName = Sample;
@@ -185,10 +159,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		64193AD32858E4DA0093F16C /* DotNetPlatformChannels.framework */ = {
+		64193AD32858E4DA0093F16C /* libDotNetPlatformChannels.a */ = {
 			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = DotNetPlatformChannels.framework;
+			fileType = archive.ar;
+			path = libDotNetPlatformChannels.a;
 			remoteRef = 64193AD22858E4DA0093F16C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -216,14 +190,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		64193AD52858E4E20093F16C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = DotNetPlatformChannels;
-			targetProxy = 64193AD42858E4E20093F16C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		64193AC92858E4C60093F16C /* Debug */ = {
@@ -353,7 +319,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 85HMA3YHJX;
+				DEVELOPMENT_TEAM = VAA25J7DNH;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -383,7 +349,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 85HMA3YHJX;
+				DEVELOPMENT_TEAM = VAA25J7DNH;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

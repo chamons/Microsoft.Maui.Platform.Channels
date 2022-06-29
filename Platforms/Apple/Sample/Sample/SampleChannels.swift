@@ -14,7 +14,7 @@ public class SampleChannels : NSObject {
     @objc
     public static func initChannels() {
         
-        ChannelService.registerChannel("math", channelType: MathChannel.self)
-        ChannelService.registerChannel("labelView", channelType: LabelViewChannel.self)
+        ChannelService.shared.registerChannel(channelId: "math", channelType: MathChannel.self)
+        ChannelService.shared.registerChannel(channelId: "labelView", channelType: LabelViewChannel.self)
     }
 }
