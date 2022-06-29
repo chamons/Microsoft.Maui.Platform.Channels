@@ -7,26 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42CEFAB5286CD7F700B1288D /* DotNetPlatformChannels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CEFAB4286CD7F700B1288D /* DotNetPlatformChannels.framework */; platformFilter = ios; };
+		42CEFAB6286CD7F700B1288D /* DotNetPlatformChannels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42CEFAB4286CD7F700B1288D /* DotNetPlatformChannels.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		64193AC82858E4C60093F16C /* Sample.h in Headers */ = {isa = PBXBuildFile; fileRef = 64193AC72858E4C60093F16C /* Sample.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64193ADB2858E4FE0093F16C /* SampleChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64193ADA2858E4FE0093F16C /* SampleChannels.swift */; };
 		64193ADD2858E54D0093F16C /* MathChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64193ADC2858E54D0093F16C /* MathChannel.swift */; };
 		64193AEA28596D220093F16C /* LabelViewChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64193AE928596D220093F16C /* LabelViewChannel.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		64193AD22858E4DA0093F16C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 64193ACE2858E4DA0093F16C /* DotNetPlatformChannels.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 64193A5E2858DF3B0093F16C;
-			remoteInfo = DotNetPlatformChannels;
+/* Begin PBXCopyFilesBuildPhase section */
+		42CEFAB0286CD5D100B1288D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				42CEFAB6286CD7F700B1288D /* DotNetPlatformChannels.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXContainerItemProxy section */
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		42CEFAB4286CD7F700B1288D /* DotNetPlatformChannels.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DotNetPlatformChannels.framework; path = "../DotNetPlatformChannels/build/Debug-iphonesimulator/DotNetPlatformChannels.framework"; sourceTree = "<group>"; };
 		64193AC42858E4C60093F16C /* Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64193AC72858E4C60093F16C /* Sample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sample.h; sourceTree = "<group>"; };
-		64193ACE2858E4DA0093F16C /* DotNetPlatformChannels.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DotNetPlatformChannels.xcodeproj; path = ../DotNetPlatformChannels/DotNetPlatformChannels.xcodeproj; sourceTree = "<group>"; };
 		64193ADA2858E4FE0093F16C /* SampleChannels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleChannels.swift; sourceTree = "<group>"; };
 		64193ADC2858E54D0093F16C /* MathChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathChannel.swift; sourceTree = "<group>"; };
 		64193AE928596D220093F16C /* LabelViewChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewChannel.swift; sourceTree = "<group>"; };
@@ -37,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42CEFAB5286CD7F700B1288D /* DotNetPlatformChannels.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,7 +53,6 @@
 		64193ABA2858E4C60093F16C = {
 			isa = PBXGroup;
 			children = (
-				64193ACE2858E4DA0093F16C /* DotNetPlatformChannels.xcodeproj */,
 				64193AC62858E4C60093F16C /* Sample */,
 				64193AC52858E4C60093F16C /* Products */,
 				64193AD62858E4EC0093F16C /* Frameworks */,
@@ -72,17 +78,10 @@
 			path = Sample;
 			sourceTree = "<group>";
 		};
-		64193ACF2858E4DA0093F16C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				64193AD32858E4DA0093F16C /* libDotNetPlatformChannels.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		64193AD62858E4EC0093F16C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42CEFAB4286CD7F700B1288D /* DotNetPlatformChannels.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,6 +108,7 @@
 				64193AC02858E4C60093F16C /* Sources */,
 				64193AC12858E4C60093F16C /* Frameworks */,
 				64193AC22858E4C60093F16C /* Resources */,
+				42CEFAB0286CD5D100B1288D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -145,28 +145,12 @@
 			mainGroup = 64193ABA2858E4C60093F16C;
 			productRefGroup = 64193AC52858E4C60093F16C /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 64193ACF2858E4DA0093F16C /* Products */;
-					ProjectRef = 64193ACE2858E4DA0093F16C /* DotNetPlatformChannels.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				64193AC32858E4C60093F16C /* Sample */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		64193AD32858E4DA0093F16C /* libDotNetPlatformChannels.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libDotNetPlatformChannels.a;
-			remoteRef = 64193AD22858E4DA0093F16C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		64193AC22858E4C60093F16C /* Resources */ = {
@@ -243,7 +227,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -300,7 +284,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -323,6 +307,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "/Users/donblas/Programming/Projects/Microsoft.Maui.Platform.Channels/Platforms/Apple/DotNetPlatformChannels/build/Debug-iphonesimulator";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -353,6 +338,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "/Users/donblas/Programming/Projects/Microsoft.Maui.Platform.Channels/Platforms/Apple/DotNetPlatformChannels/build/Debug-iphonesimulator";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
