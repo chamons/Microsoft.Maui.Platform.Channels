@@ -14,14 +14,9 @@
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net6.0-ios' OR '$(TargetFramework)' == 'net6.0-maccatalyst' ">
-    <!--<Compile Include="ApiAdditions.cs" />-->
-    <NativeReference Include="..\Platforms\Apple\DotNetPlatformChannels\build\DotNetPlatformChannels.xcframework">
-        <!--<Link>DotNetPlatformChannels.xcframework</Link>-->
-        <Kind>Framework</Kind>
+    <NativeReference Include="..\DotNetPlatformChannels\build\Debug-iphonesimulator\libDotNetPlatformChannels.a">
+        <Kind>Static</Kind>
         <Frameworks></Frameworks>
-        <!--<SmartLink>True</SmartLink>
-        <ForceLoad>True</ForceLoad>
-        <LinkerFlags>-ObjC</LinkerFlags>-->
     </NativeReference>
     <ObjcBindingApiDefinition Include="ApiDefinitions.cs" />
   </ItemGroup>
