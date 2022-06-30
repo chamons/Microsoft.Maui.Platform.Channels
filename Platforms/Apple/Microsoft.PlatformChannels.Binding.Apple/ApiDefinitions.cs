@@ -102,18 +102,6 @@ namespace Microsoft.PlatformChannels.Platform
         IChannelProvider Provider { get; set; }
     }
 
-    // @protocol ChannelViewProvider <NSObject>
-    /*
-	Check whether adding [Model] to this declaration is appropriate.
-	[Model] is used to generate a C# class that implements this protocol,
-	and might be useful for protocols that consumers are supposed to implement,
-	since consumers can subclass the generated class instead of implementing
-	the generated interface. If consumers are not supposed to implement this
-	protocol, then [Model] is redundant and will generate code that will never
-	be used.
-	*/
-    interface IChannelViewProvider { }
-
     [Protocol]
     [BaseType(typeof(NSObject))]
     interface ChannelViewProvider
@@ -126,7 +114,7 @@ namespace Microsoft.PlatformChannels.Platform
 
     // @interface ViewChannel : Channel
     [BaseType(typeof(Channel))]
-    interface ViewChannel : ChannelMessageHandler
+    interface ViewChannel : ChannelMessageHandler, ChannelViewProvider
     {
     }
 }
