@@ -1,2 +1,1 @@
-global using PlatformView = global::UIKit.UIView;
-global using PlatformObject = global::Foundation.NSObject;
+MacCatalyst/GlobalUsings.ios.cs
