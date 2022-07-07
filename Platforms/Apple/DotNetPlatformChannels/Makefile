@@ -1,9 +1,11 @@
+CURRENT:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
 all::
 	rm -fr build/
-	xcodebuild archive -sdk iphonesimulator -scheme DotNetPlatformChannels -archivePath build/DotNetPlatformChannels-iphonesimulator.xcarchive SKIP_INSTALL=NO
-	xcodebuild archive -destination 'platform=macOS,variant=Mac Catalyst' -scheme DotNetPlatformChannels -archivePath build/DotNetPlatformChannels-maccatalyst.xcarchive SKIP_INSTALL=NO
-	xcodebuild archive -sdk iphoneos -scheme DotNetPlatformChannels -archivePath build/DotNetPlatformChannels-iphoneos.xcarchive SKIP_INSTALL=NO
-	xcodebuild -create-xcframework -framework build/DotNetPlatformChannels-iphoneos.xcarchive/Products/Library/Frameworks/DotNetPlatformChannels.framework  -framework build/DotNetPlatformChannels-iphonesimulator.xcarchive/Products/Library/Frameworks/DotNetPlatformChannels.framework -framework build/DotNetPlatformChannels-maccatalyst.xcarchive/Products/Library/Frameworks/DotNetPlatformChannels.framework -output build/DotNetPlatformChannels.xcframework
+	xcodebuild -configuration Debug -sdk iphonesimulator15.5
+	xcodebuild -configuration Debug -sdk iphoneos15.5
+	xcodebuild -configuration Debug -destination 'platform=macOS,variant=Mac Catalyst' -scheme DotNetPlatformChannels SYMROOT=$(CURRENT)/build
+	xcodebuild -create-xcframework -framework build/Debug-iphoneos/DotNetPlatformChannels.framework  -framework build/Debug-iphonesimulator/DotNetPlatformChannels.framework -framework build/Debug-maccatalyst/DotNetPlatformChannels.framework -output build/DotNetPlatformChannels.xcframework
 
 clean:
 	rm -fr build/

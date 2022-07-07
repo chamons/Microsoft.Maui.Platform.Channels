@@ -5,23 +5,18 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <EnableDefaultCompileItems>False</EnableDefaultCompileItems>
     <RootNamespace>Microsoft.PlatformChannels.Platform</RootNamespace>
+    <IsBindingProject>True</IsBindingProject>
   </PropertyGroup>
   
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net6.0-ios' OR '$(TargetFramework)' == 'net6.0-maccatalyst' ">
-      <IsBindingProject>True</IsBindingProject>
-      <!--<NoBindingEmbedding>true</NoBindingEmbedding>-->
-	  <!--<SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>-->
-  </PropertyGroup>
-
   <ItemGroup Condition="'$(TargetFramework)' == 'net6.0-ios'">
-    <NativeReference Include="..\DotNetPlatformChannels\build\DotNetPlatformChannels-iphoneos.xcarchive\Products\Library\Frameworks\DotNetPlatformChannels.framework">
+    <NativeReference Include="..\DotNetPlatformChannels\build\DotNetPlatformChannels.xcframework\ios-arm64\DotNetPlatformChannels.framework">
         <Kind>Framework</Kind>
         <Frameworks></Frameworks>
     </NativeReference>
     <ObjcBindingApiDefinition Include="ApiDefinitions.cs" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net6.0-maccatalyst' ">
-    <NativeReference Include="..\DotNetPlatformChannels\build\DotNetPlatformChannels-maccatalyst.xcarchive\Products\Library\Frameworks\DotNetPlatformChannels.framework">
+    <NativeReference Include="..\DotNetPlatformChannels\build\DotNetPlatformChannels.xcframework\ios-arm64-maccatalyst\DotNetPlatformChannels.framework">
         <Kind>Framework</Kind>
         <Frameworks></Frameworks>
     </NativeReference>
