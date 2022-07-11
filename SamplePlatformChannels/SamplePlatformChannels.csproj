@@ -47,7 +47,7 @@
 		<NativeReference Include="/Users/donblas/Programming/Projects/Microsoft.Maui.Platform.Channels/Platforms/Apple/Sample/build/Debug-iphonesimulator/Sample.framework"  Kind="Framework"  />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-maccatalyst'">
-		<NativeReference Include="/Users/donblas/Programming/Projects/Microsoft.Maui.Platform.Channels/Platforms/Apple/Sample/build/Debug-maccatalyst/Sample.framework/"  Kind="Framework"  />
+		<NativeReference Include="/Users/donblas/Programming/Projects/Microsoft.Maui.Platform.Channels/Platforms/Apple/Sample/build/Debug-maccatalyst/Sample.framework"  Kind="Framework"  />
 	</ItemGroup>
 	
 	<ItemGroup>
