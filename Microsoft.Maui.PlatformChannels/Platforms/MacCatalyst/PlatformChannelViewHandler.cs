@@ -80,7 +80,7 @@ public partial class PlatformChannelViewHandler : ViewHandler<IPlatformChannelVi
 		platformViewChannel.SetManagedHandler(managedHandler);
 
 		var platformView = platformViewChannel.GetPlatformView();
-		viewGroup.AddSubview(platformView);
+		viewGroup.AddSubview (platformView);
 	}
 	
     public static void MapChannelTypeId(IPlatformViewHandler handler, IPlatformChannelView view)

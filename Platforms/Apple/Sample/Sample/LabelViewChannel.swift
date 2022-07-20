@@ -10,11 +10,10 @@ import Foundation
 import DotNetPlatformChannels
 import UIKit
 
-class LabelViewChannel : Channel, ChannelViewProvider {
-    public func onChannelMessage(_ messageId: String, withArgs args: [Any]?) -> Any? {
-        
+class LabelViewChannel : ViewChannel {
+    override func onChannelMessage (_ messageId: NSString, withArgs args: [NSObject]) -> NSObject? {
         if (messageId == "setText") {
-            if let a = args![0] as? NSString {
+            if let a = args[0] as? NSString {
                 label?.text = String(a)
             }
         }
@@ -23,9 +22,12 @@ class LabelViewChannel : Channel, ChannelViewProvider {
     
     var label: UILabel? = nil;
     
-    public func getPlatformView () -> UIView {
+    override func getPlatformView () -> UIView {
+        write_log ("getPlatformView")
+
         if (label == nil) {
-            label = UILabel(frame: CGRect())
+            label = UILabel(frame: CGRect(x: 200, y: 200, width: 400, height: 100))
+            label!.backgroundColor = UIColor.green
         }
         return label!;
     }

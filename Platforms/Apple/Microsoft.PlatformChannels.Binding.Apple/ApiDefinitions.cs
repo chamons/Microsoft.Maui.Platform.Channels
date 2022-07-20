@@ -90,19 +90,10 @@ namespace Microsoft.PlatformChannels.Platform
         IChannelProvider Provider { get; set; }
     }
 
-    [Protocol]
-    [BaseType(typeof(NSObject), Name = "_TtP22DotNetPlatformChannels19ChannelViewProvider_")]
-    interface ChannelViewProvider
+    [BaseType(typeof(Channel), Name = "_TtC22DotNetPlatformChannels11ViewChannel")]
+    interface ViewChannel : Channel
     {
-        // @required -(UIView *)getPlatformView;
-        [Abstract]
         [Export("getPlatformView")]
         UIView GetPlatformView();
-    }
-
-    // @interface ViewChannel : Channel
-    [BaseType(typeof(Channel))]
-    interface ViewChannel : ChannelMessageHandler, ChannelViewProvider
-    {
     }
 }

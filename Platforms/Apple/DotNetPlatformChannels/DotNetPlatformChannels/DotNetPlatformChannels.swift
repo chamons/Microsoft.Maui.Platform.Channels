@@ -7,14 +7,14 @@ import os
 
 @objc
 public protocol ChannelMessageHandler {
-    func sendMessageToDotNet (messageId: NSString, withArgs args: [NSObject]) -> NSObject?
+    func sendMessageToDotNet (_ messageId: NSString, withArgs args: [NSObject]) -> NSObject?
 }
 
 @objc
 public protocol ChannelProvider {
     func getDefaultInstanceId () -> NSString
-    func getInstance (channelID: NSString, withInstance instanceID: NSString) -> Channel
-    func disposeInstance (channelID: NSString, withInstance instanceID: NSString)
+    func getInstance (_ channelID: NSString, withInstance instanceID: NSString) -> Channel
+    func disposeInstance (_ channelID: NSString, withInstance instanceID: NSString)
 }
 
 @objc
@@ -23,27 +23,32 @@ open class Channel : NSObject, ChannelMessageHandler {
     
     public weak var managed: ChannelMessageHandler?;
 
-    public func setManagedHandler (handler: ChannelMessageHandler)
+    @objc
+    public func setManagedHandler (_ handler: ChannelMessageHandler)
     {
         managed = handler;
     }
     
     @objc
-    public func sendMessageToDotNet (messageId: NSString, withArgs args: [NSObject]) -> NSObject?
+    public func sendMessageToDotNet (_ messageId: NSString, withArgs args: [NSObject]) -> NSObject?
     {
-        managed!.sendMessageToDotNet(messageId: messageId, withArgs: args)
+        managed!.sendMessageToDotNet(messageId, withArgs: args)
     }
-    
+ 
     @objc
-    open func handleMessageFromDotNet (messageId: NSString, with args: [NSObject]) -> NSObject?
+    open func onChannelMessage (_ messageId: NSString, withArgs args: [NSObject]) -> NSObject?
     {
         return nil;
     }
 }
 
 @objc
-public protocol ChannelViewProvider {
-    func getPlatformView () -> UIView
+open class ViewChannel : Channel {
+    @objc
+    open func getPlatformView () -> UIView?
+    {
+        return nil;
+    }
 }
 
 @objc
@@ -59,22 +64,22 @@ public class ChannelService : NSObject {
     
     public func registerChannel (channelId: NSString, channelType: Channel.Type)
     {
-        write_log("registerChannel")
+        write_log("registerChannel: " + (channelId as String) + " " +  String(describing: channelType))
         services[channelId] = channelType;
     }
     
     @objc
-    public static func getOrCreate (channelId: NSString, instance instanceID: NSString) -> Channel?
+    public static func getOrCreate (_ channelId: NSString, instance instanceID: NSString) -> Channel?
     {
-        return ChannelService.shared.getOrCreate (channelId: channelId, instance: instanceID)
+        return ChannelService.shared.getOrCreate (channelId, instance: instanceID)
     }
 
-    public func getOrCreate (channelId: NSString, instance instanceID: NSString) -> Channel?
+    public func getOrCreate (_ channelId: NSString, instance instanceID: NSString) -> Channel?
     {
-        write_log("getOrCreate")
+        write_log("getOrCreate: " + (channelId as String) + " " + (instanceID as String))
         if services[channelId] != nil {
             write_log("found")
-            return ChannelService.channelProvider?.getInstance(channelID: channelId, withInstance: instanceID)
+            return ChannelService.channelProvider?.getInstance(channelId, withInstance: instanceID)
         }
         else {
             write_log("not found")
@@ -83,14 +88,14 @@ public class ChannelService : NSObject {
     }
     
     @objc
-    public static func create (channelId: NSString) -> Channel
+    public static func create (_ channelId: NSString) -> Channel
     {
         return ChannelService.shared.create (channelId: channelId)
     }
 
     public func create (channelId: NSString) -> Channel
     {
-        write_log("create")
+        write_log("create: " + (channelId as String))
         return services[channelId]!.init()
     }
 }

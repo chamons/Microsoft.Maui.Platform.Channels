@@ -9,7 +9,7 @@ import Foundation
 import DotNetPlatformChannels
 
 class MathChannel : Channel {
-    public override func handleMessageFromDotNet (messageId: NSString, with args: [NSObject]) -> NSObject? {
+    override func onChannelMessage (_ messageId: NSString, withArgs args: [NSObject]) -> NSObject? {
         let result = NSObject()
 
         if (messageId == "add") {
