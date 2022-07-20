@@ -53,6 +53,8 @@ public partial class ChannelService : IChannelService
 
 	internal void Initialize()
 	{
+		Console.Error.WriteLine ($"Initialize: {Configuration.InitClassName} {Configuration.InitMethodName}");
+		Console.Error.Flush();
 		var c = new ObjCRuntime.Class(Configuration.InitClassName);
 		var s = new ObjCRuntime.Selector(Configuration.InitMethodName);
 		void_objc_msgSend(c.Handle, s.Handle);

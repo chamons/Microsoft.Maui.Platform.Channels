@@ -18,7 +18,7 @@ namespace Microsoft.PlatformChannels.Platform
     interface IChannelMessageHandler { }
 
     [Protocol]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "_TtP22DotNetPlatformChannels21ChannelMessageHandler_")]
     interface ChannelMessageHandler
     {
         // @required -(id _Nullable)onChannelMessage:(NSString * _Nonnull)messageId withArgs:(NSArray * _Nullable)args;
@@ -29,7 +29,7 @@ namespace Microsoft.PlatformChannels.Platform
     }
 
     // @interface Channel : NSObject
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "_TtC22DotNetPlatformChannels7Channel")]
     interface Channel : ChannelMessageHandler
     {
         // @property (weak) id<ChannelMessageHandler> _Nullable managedHandler;
@@ -54,7 +54,7 @@ namespace Microsoft.PlatformChannels.Platform
     interface IChannelProvider { }
 
     [Protocol]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "_TtP22DotNetPlatformChannels15ChannelProvider_")]
     interface ChannelProvider
     {
         // @required -(NSString * _Nonnull)getDefaultInstanceId;
@@ -74,36 +74,24 @@ namespace Microsoft.PlatformChannels.Platform
     }
 
     // @interface ChannelService : NSObject
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "_TtC22DotNetPlatformChannels14ChannelService")]
     interface ChannelService
     {
-        // +(ChannelService * _Nonnull)getInstance;
-        // [Static]
-        // [Export("getInstance")]
-        // ChannelService GetInstance();
-
-        // +(void)registerChannel:(NSString * _Nonnull)channelId channelType:(Class _Nonnull)type;
-        [Static]
-        [Export("registerChannel:channelType:")]
-        void Register(string channelId, Class type);
-
-        // +(Channel<ChannelMessageHandler> * _Nonnull)getOrCreate:(NSString * _Nonnull)channelId instance:(NSString * _Nonnull)instanceId;
-        [Static]
         [Export("getOrCreate:instance:")]
+        [Static]
         Channel GetOrCreate(string channelId, string instanceId);
 
-        // +(Channel<ChannelMessageHandler> * _Nonnull)create:(NSString * _Nonnull)channelId;
-        [Static]
         [Export("create:")]
+        [Static]
         Channel Create(string channelId);
 
-        // @property (nonatomic, weak) id<ChannelProvider> _Nullable channelProvider;
-        [Static, NullAllowed, Export("channelProvider", ArgumentSemantic.Weak)]
+        [NullAllowed, Export("channelProvider", ArgumentSemantic.Weak)]
+        [Static]
         IChannelProvider Provider { get; set; }
     }
 
     [Protocol]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "_TtP22DotNetPlatformChannels19ChannelViewProvider_")]
     interface ChannelViewProvider
     {
         // @required -(UIView *)getPlatformView;

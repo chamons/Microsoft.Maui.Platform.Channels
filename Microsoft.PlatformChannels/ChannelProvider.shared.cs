@@ -32,6 +32,9 @@ public partial class ChannelProvider
 
 	ChannelInstanceHolder GetChannelInstanceHolder(string channelId, string instanceId)
 	{
+		Console.Error.WriteLine ("GetChannelInstanceHolder");
+		Console.Error.Flush();
+
 		if (!channels.ContainsKey(channelId))
 			channels[channelId] = new();
 

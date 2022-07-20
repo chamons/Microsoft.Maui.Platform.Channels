@@ -63,8 +63,9 @@ public partial class PlatformChannelViewHandler : ViewHandler<IPlatformChannelVi
 
 		var channel = Microsoft.PlatformChannels.Platform.ChannelService.GetOrCreate(ChannelTypeId, ChannelInstanceId);
 
-		if (channel == null)
+		if (channel == null) {
 			throw new InvalidOperationException($"No registered ViewChannel found for: '{ChannelTypeId}', instance: '{ChannelInstanceId}'");
+		}
 
 		if (channel is not iOSViewChannel viewChannel)
 			throw new InvalidCastException($"Registered channel '{ChannelTypeId}' is not a 'ViewChannel' type for instance: '{ChannelInstanceId}");

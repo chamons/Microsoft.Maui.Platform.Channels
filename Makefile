@@ -1,8 +1,14 @@
 #TARGET=net6.0-ios
 TARGET=net6.0-maccatalyst
 
-test::
+both:: build run
+
+build::
 	make -C Platforms/Apple/
 	dotnet build Microsoft.Maui.PlatformChannels/ -f:$(TARGET)
 	dotnet build -f:$(TARGET) SamplePlatformChannels
-	MONO_TRACE=E:all ./SamplePlatformChannels/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/SamplePlatformChannels.app/Contents/MacOS/SamplePlatformChannels
+	
+run::
+	rm -f /Users/donblas/Documents/log{,2}.txt
+	-MONO_TRACE=E:all ./SamplePlatformChannels/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/SamplePlatformChannels.app/Contents/MacOS/SamplePlatformChannels
+	cat /Users/donblas/Documents/log{,2}.txt
