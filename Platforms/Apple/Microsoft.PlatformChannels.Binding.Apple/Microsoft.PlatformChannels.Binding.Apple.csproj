@@ -8,13 +8,7 @@
     <IsBindingProject>True</IsBindingProject>
   </PropertyGroup>
   
-  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0-ios'">
-    <NativeReference Include="..\DotNetPlatformChannels\build\DotNetPlatformChannels.xcframework">
-        <Kind>Framework</Kind>
-    </NativeReference>
-    <ObjcBindingApiDefinition Include="ApiDefinitions.cs" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0-maccatalyst' ">
+  <ItemGroup >
     <NativeReference Include="..\DotNetPlatformChannels\build\DotNetPlatformChannels.xcframework">
         <Kind>Framework</Kind>
     </NativeReference>
