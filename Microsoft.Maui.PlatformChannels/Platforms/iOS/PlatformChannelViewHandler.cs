@@ -1,1 +1,1 @@
-MacCatalyst/PlatformChannelViewHandler.cs
+../MacCatalyst/PlatformChannelViewHandler.cs

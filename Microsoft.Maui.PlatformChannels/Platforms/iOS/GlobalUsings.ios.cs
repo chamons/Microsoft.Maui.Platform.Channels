@@ -1,1 +1,1 @@
-MacCatalyst/GlobalUsings.ios.cs
+../MacCatalyst/GlobalUsings.ios.cs

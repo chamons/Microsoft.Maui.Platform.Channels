@@ -64,7 +64,6 @@ public class ChannelService : NSObject {
     
     public func registerChannel (channelId: NSString, channelType: Channel.Type)
     {
-        write_log("registerChannel: " + (channelId as String) + " " +  String(describing: channelType))
         services[channelId] = channelType;
     }
     
@@ -76,13 +75,10 @@ public class ChannelService : NSObject {
 
     public func getOrCreate (_ channelId: NSString, instance instanceID: NSString) -> Channel?
     {
-        write_log("getOrCreate: " + (channelId as String) + " " + (instanceID as String))
         if services[channelId] != nil {
-            write_log("found")
             return ChannelService.channelProvider?.getInstance(channelId, withInstance: instanceID)
         }
         else {
-            write_log("not found")
             return nil;
         }
     }
@@ -95,31 +91,6 @@ public class ChannelService : NSObject {
 
     public func create (channelId: NSString) -> Channel
     {
-        write_log("create: " + (channelId as String))
         return services[channelId]!.init()
-    }
-}
-
-func write_log(_ text: String) {
-    let text = text + "\n"
-    guard let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-        return
-    }
-
-    let encoding = String.Encoding.utf8
-
-    guard let data = text.data(using: encoding) else {
-        return
-    }
-
-    let fileUrl = dir.appendingPathComponent("log2.txt")
-    print(fileUrl)
-
-    if let fileHandle = FileHandle(forWritingAtPath: fileUrl.path) {
-        fileHandle.seekToEndOfFile()
-        fileHandle.write(data)
-        
-    } else {
-        try! text.write(to: fileUrl, atomically: false, encoding: encoding)
     }
 }

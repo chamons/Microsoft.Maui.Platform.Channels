@@ -24,7 +24,6 @@ public partial class PlatformChannelViewHandler : ViewHandler<IPlatformChannelVi
 			viewGroup = new UIView(new CoreGraphics.CGRect(0, 0, 400, 100));
 		}
 		EnsureChannelCreated();
-		Console.WriteLine ("CreatePlatformView");
 		return viewGroup;
 	}
 

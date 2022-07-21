@@ -11,7 +11,6 @@ import DotNetPlatformChannels
 class MathChannel : Channel {
     override func onChannelMessage (_ messageId: NSString, withArgs args: [NSObject]) -> NSObject? {
         let result = NSObject()
-        write_log ("onChannelMessage - math")
 
         if (messageId == "add") {
             if let a = args[0] as? NSNumber {
