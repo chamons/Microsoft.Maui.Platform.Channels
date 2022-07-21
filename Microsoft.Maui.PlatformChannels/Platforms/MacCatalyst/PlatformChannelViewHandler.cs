@@ -20,10 +20,11 @@ public partial class PlatformChannelViewHandler : ViewHandler<IPlatformChannelVi
 
 	protected override UIKit.UIView CreatePlatformView()
 	{
-		if (viewGroup is null)
-			viewGroup = new UIView();
+		if (viewGroup is null) {
+			viewGroup = new UIView(new CoreGraphics.CGRect(0, 0, 400, 100));
+		}
 		EnsureChannelCreated();
-		
+		Console.WriteLine ("CreatePlatformView");
 		return viewGroup;
 	}
 
